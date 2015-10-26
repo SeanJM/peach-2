@@ -66,6 +66,39 @@ peach.render('button', buttonList);
 //    <div class="button">My Second Button</div>
 ```
 
+<a id="peach_fn_node"></a>
+## Peach.fn.node
+
+Works the same as `[Peach.fn.render](#peach_fn_render)` and returns a `Node` or `nodeList` instead of a string.
+
+```javascript
+var peach      = Peach();
+var buttonNode = peach.node('button', {
+  text : 'My Button'
+});
+// -> [object HTMLBodyElement] : <div class="button">My Button</div>
+```
+
+<a id="peach_fn_nodeEach"></a>
+## Peach.fn.nodeEach
+
+Takes an array as second argument to render templates as a nodeList
+
+```javascript
+var peach      = Peach();
+var buttonList = [{
+  text : 'My Button'
+}, {
+  text : 'My Second Button'
+}];
+var buttonNodes = peach.nodeEach('button', buttonList);
+// -> [object NodeList] :
+//    [
+//      0: <div class="button">My Button</div>],
+//      1: <div class="button">My Second Button</div>
+//    ]
+```
+
 <a id="peach_fn_set"></a>
 ## Peach.fn.set
 
@@ -113,12 +146,27 @@ There are two events you can bind to, `render` & `node`
 ```javascript
 peach.on('render', 'button', function (mixinList) {
   // mixinList is an array of strings passed to the renderer with Peach.fn.render
-  // eg : peach.render('button:mixin1:mixin2') would pass the mixinList of ['mixin1', 'mixin2'];
+  // eg : peach.render('button:mixin1:mixin2') would pass the mixinList
+  // of ['mixin1', 'mixin2'];
   ...
 });
 ```
 
-It's important to note, that `peach.on('render')` passes `this` to the function containing all values in a passed object as well as default values.
+It's important to note, that `peach.on('render')` passes `this` to the function as an `object`.
+
+Here are the two ways in which you can add key values to `this`
+
+1. Passing an `object` literal to the renderer. This object will augment `this` with its values.
+
+```
+peach.render('button', { text : 'myButton' });
+```
+
+2. Passing a reference to an `object`
+
+```
+peach.render('button@myButton');
+```
 
 An example of the value of `this` when simply executing `peach.render('button');`
 
@@ -132,40 +180,20 @@ self: "button"
 string: "<div {{attr}}>{{text}}</div>"
 ```
 
+An example of the value of the agumented `this` when pasing an `object`
+
+```
+attr: "class="button""
+attr_class: "class="button""
+class: [
+  0: "button"
+],
+self: "button"
+string: "<div {{attr}}>{{text}}</div>",
+text: "My Button"
+```
+
 Each one of the preceding values that are strings can be included in your template.
-
-<a id="peach_fn_node"></a>
-## Peach.fn.node
-
-Works the same as `[Peach.fn.render](#peach_fn_render)` and returns a `Node` or `nodeList` instead of a string.
-
-```javascript
-var peach      = Peach();
-var buttonNode = peach.node('button', {
-  text : 'My Button'
-});
-// -> [object HTMLBodyElement] : <div class="button">My Button</div>
-```
-
-<a id="peach_fn_nodeEach"></a>
-## Peach.fn.nodeEach
-
-Takes an array as second argument to render templates as a nodeList
-
-```javascript
-var peach      = Peach();
-var buttonList = [{
-  text : 'My Button'
-}, {
-  text : 'My Second Button'
-}];
-var buttonNodes = peach.nodeEach('button', buttonList);
-// -> [object NodeList] :
-//    [
-//      0: <div class="button">My Button</div>],
-//      1: <div class="button">My Second Button</div>
-//    ]
-```
 
 <a id="example_template-file"></a>
 ### A template file
