@@ -7,6 +7,8 @@ Basic usage:
 ## Loading a template
 You can load as many templates you want.
 
+### Loading from a file
+
 ```javascript
 peach = Peach();
 peach.load(['template.html'], callback);
@@ -17,6 +19,17 @@ peach.load(['template.html'], callback);
 ```html
 button
   <div class={{self}}>{{text}}</div>
+```
+
+### Loading using `Peach.fn.add`
+
+```javascript
+peach = Peach();
+peach.add({
+  button : {
+    value : '<div {{attr}}>{{text}}</div>'
+  }
+});
 ```
 
 ## Rendering a button
