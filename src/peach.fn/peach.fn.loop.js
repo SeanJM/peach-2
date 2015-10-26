@@ -23,7 +23,7 @@
     var self      = this;
     var nodeArray = Array.prototype.slice.call(nodeList);
     _.forEach(nodeArray, function (node) {
-      replace(node).with(self.renderNode(node.getAttribute('render')));
+      replace(node).with(Peach.fn.node.call(self, node.getAttribute('render')));
     });
     if (typeof callback === 'function') {
       callback(nodeArray);

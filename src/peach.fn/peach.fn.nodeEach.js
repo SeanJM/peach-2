@@ -4,7 +4,7 @@
     div.innerHTML = render;
     return Array.prototype.slice.call(div.children);
   }
-  Peach.fn.renderEachNode = function () {
+  Peach.fn.nodeEach = function () {
     var _arguments = Peach.getArguments.apply(this, arguments);
     var nodeList   = getNodeList(this.renderEach(_arguments));
     var self       = this;

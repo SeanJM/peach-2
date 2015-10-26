@@ -13,7 +13,7 @@ Peach.fn.update = function (name, object) {
   }
   dataBinding[name] = newList;
   _.forEach(dataBinding[name], function (oldNode, i) {
-    var newNode = peach.renderNode(name, object);
+    var newNode = peach.node(name, object);
     oldNode.parentNode.replaceChild(newNode, oldNode);
     self.bind(name, newNode);
   });
