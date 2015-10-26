@@ -1,5 +1,4 @@
 (function () {
-  var styles      = window.getComputedStyle(document.body);
   var vendor      = [ 'Moz', 'webkit', 'ms', 'o' ];
   var prefixMatch = [ 'transform', 'userSelect', 'linearGradient' ];
   function toDomName(property) {
@@ -10,7 +9,7 @@
       return '-' + arguments[1].toLowerCase() + '-' + _.kebabCase(arguments[2]);
     });
   }
-  function prefix(name) {
+  function prefix(styles, name) {
     var match = prefixMatch[prefixMatch.indexOf(name)];
     var temp;
     if (typeof match === 'string') {
@@ -29,11 +28,11 @@
   function toType(s) {
     return /^[0-9\.]+$/.test(s) ? s += 'px' : s;
   }
-  function format(styleObject) {
+  function format(styles, styleObject) {
     var newStyle = {};
     for (var name in styleObject) {
       if (typeof styleObject[name] !== 'undefined') {
-        newStyle[prefix(name)] = toType(styleObject[name]);
+        newStyle[prefix(styles, name)] = toType(styleObject[name]);
       }
     }
     return newStyle;
@@ -55,6 +54,6 @@
     } else if (typeof options.style === 'string') {
       options.style = stringStyleToObject(options.style);
     }
-    _.assign(options.style, format(styleObject));
+    _.assign(options.style, format(self.styles, styleObject));
   };
 })();

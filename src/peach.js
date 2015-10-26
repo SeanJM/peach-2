@@ -86,7 +86,8 @@ function Peach(options) {
           value: 'disabled'
         },
       },
-      unsafe: [
+      styles : window.getComputedStyle(document.body),
+      unsafe : [
         '_compose',
         'addClass',
         'class',
