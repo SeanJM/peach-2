@@ -1,4 +1,4 @@
-Peach.fn.refresh = function (name, object) {
+Peach.fn.update = function (name, object) {
   var dataBinding = this._protected.dataBinding;
   var nodeList    = _.uniq(dataBinding[name].sort(function (a, b) {
     if (a === b) { return 1; }
