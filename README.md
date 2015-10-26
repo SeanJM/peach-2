@@ -28,6 +28,7 @@ Peach is a template engine with subscribers and emitters
 
 ### Examples
 - [A Todo list](#example_todo-list)
+- [Setting custom options at initialization](#example_custom-init)
 
 # Function List
 
@@ -350,30 +351,7 @@ initTodoTemplates();
 appendTodoList();
 ```
 
-### The template file with a new variable named `color`
-
-```html
-button
-  <div class="{{self}}--{{color}} {{self}}">{{text}}</div>
-```
-
-```javascript
-peach.on('render', 'button', function () {
-  if (typeof this.color === 'undefined') {
-    this.color = 'blue';
-  }
-});
-```
-
-### Rendering the new template
-```javascript
-peach.render('button', { text : 'My Blue Button '});
-// -> <div class="button--blue button">My Blue Button</div>
-
-peach.render('button', { text : 'My Red Button ', color : 'red' });
-// -> <div class="button--red button">My Red Button</div>
-```
-
+<a id="example_custom-init"></a>
 ## Setting custom options at initialization (introduction to another default variable named `attr`)
 
 ### What is the `attr` variable?
