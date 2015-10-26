@@ -152,7 +152,7 @@ peach.get('buttonList.myButton');
 There are two events you can bind to, `render` & `node`
 
 <a id="peach_fn_on_render"></a>
-#### `onrender`
+#### render
 
 ```javascript
 peach.on('render', 'button', function (mixinList) {
@@ -207,7 +207,7 @@ text: "My Button"
 Each one of the preceding values that are strings can be included in your template.
 
 <a id="peach_fn_on_node"></a>
-#### `onnode`
+#### node
 
 ```javascript
 peach.on('node', 'button', function (node, mixinList) {
