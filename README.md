@@ -277,7 +277,7 @@ peach.update('button', { text : 'button2' });
 
 <a id="example_todo-list"></a>
 ### A todo list
-[JSFiddle](http://jsfiddle.net/SeanJM/eeL23xdf/20/)
+[JSFiddle](http://jsfiddle.net/SeanJM/eeL23xdf/21/)
 
 ```html
 <div id="todo-container"></div>
