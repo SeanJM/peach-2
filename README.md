@@ -1,5 +1,8 @@
 # Peach 2.0
 
+## Requirements
+- [Lodash](https://raw.githubusercontent.com/lodash/lodash/3.10.1/lodash.min.js)
+
 Peach is a template engine with subscribers and emitters
 
 ### Reference List
