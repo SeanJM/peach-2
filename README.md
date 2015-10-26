@@ -106,13 +106,60 @@ var peach = Peach({
     dingo : {
       value   : 'data-dingo',
       process : dingo.flatten
-    },
-    accept : {
-      value : 'accept'
     }
-  },
-  binder : myAddEventListenerFunction
+  }
 });
 ```
 
-Here we have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- this is so your key and it's value can optionally be preprocessed before rendering.
+Here we have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- this is so your key and it's value can optionally be preprocessed before rendering. The preprocessor must return a string.
+
+## DOM rendering
+
+There is a DOM interface for rendering templates. The tag is `<x-peach render="button"></x-peach>`
+
+```html
+<HTML>
+  <body>
+    <x-peach render="button"><x-peach>
+    <script src="peach.min.js"></script>
+  </body>
+</HTML>
+```
+
+Everything inside the `render` attribute is symmetric to the first argument in `peach.render()` this important because of the ability to pass `objects` and `mixins` to the renderer.
+
+## Setting an object that can be passed
+
+```javascript
+peach.set('hello', {
+  text : 'Hello'
+});
+```
+
+## Passing a `set` object to the renderer
+
+```javascript
+peach.render('button@hello');
+// -> <div class="button">Hello</div>
+```
+
+You can have more complex objects as `peach.set` uses `lodash`, it uses `_.set` for setting.
+
+```javascript
+peach.set('buttonModels', {
+  hello : {
+    text : 'Hello'
+  },
+  world : {
+    world : 'World'
+  }
+});
+```
+
+```javascript
+peach.render('button@buttonModels.hello');
+// -> <div class="button">Hello</div>
+
+peach.render('button@buttonModels.world');
+// -> <div class="button">World</div>
+```
