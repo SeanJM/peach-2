@@ -25,6 +25,8 @@ Peach is a template engine with subscribers and emitters
 ## Examples
 - [A Template file](#example_template-file)
 
+# Function List
+
 <a id="peach_fn_add"></a>
 ### Peach.fn.add
 
@@ -264,6 +266,8 @@ Updates a node in the DOM with an updated version of that node by rendering it w
 ```javascript
 peach.update('button', { text : 'button2' });
 ```
+
+# Examples
 
 <a id="example_template-file"></a>
 ### A template file
