@@ -2,7 +2,7 @@
 
 Peach is a template engine with subscribers and emitters
 
-### Function list
+### Reference List
 - [Peach.fn.add](#peach_fn_add)
 - [Peach.fn.load](#peach_fn_load)
 - [Peach.fn.render](#peach_fn_render)
@@ -270,14 +270,81 @@ peach.update('button', { text : 'button2' });
 # Examples
 
 <a id="example_template-file"></a>
-### A template file
+### A todo list
+[JSFiffle](http://jsfiddle.net/SeanJM/eeL23xdf/20/)
 
 ```html
-button
-  <div class={{self}}>{{text}}</div>
+<div id="todo-container"></div>
 ```
 
-## Adding a subscriber to perform prerendering operations
+```javascript
+var peach = Peach();
+var todos = [{
+    text : 'My first todo'
+}];
+function initTodoTemplates() {
+	peach.add({
+        'button' : {
+            value : '<div {{attr}}>{{text}}</div>'
+        },
+        'todo-list' : {
+            value : '<div {{attr}}>'+
+               	'<div class="todo-control">' +
+            		'<input class="todo-input" id="todo-input" placeholder="Enter todo text here">' +
+		            '<x-peach render="button:add"></x-peach>' +
+            	'</div>' +
+            	'<div class="todo-container">{{todoItems}}</div>' +
+            '</div>'
+        },
+        'todo-item' : {
+            value : '<div {{attr}}>' +
+            	'<div class="{{self}}-text">{{text}}</div>' +
+               	'<div class="{{self}}-control">' +
+            		'<x-peach render="button:remove"></x-peach>' +
+            	'</div>' +
+            '</div>'
+        }
+	});
+}
+function appendTodoList() {
+    var todoNode = peach.node('todo-list');
+	document.querySelector('#todo-container').appendChild(todoNode);
+    peach.bind('todo-list', todoNode);
+}
+function addTodo() {
+    var val = {
+    	text : document.querySelector('#todo-input').value.trim()
+    };
+    if (val.text.length) {
+		todos.push(val);
+    	peach.update('todo-list');
+    }
+}
+function removeTodo(e) {
+    var index = Number(e.target.closest('.todo-item').id.split('-').slice(-1)[0]);
+    todos.splice(index, 1);
+    peach.update('todo-list');
+}
+peach.on('render', 'todo-item', function () {
+	this.id = 'todo-item-' + this.index;
+});
+peach.on('render', 'todo-list', function () {
+    this.todoItems = peach.renderEach('todo-item', todos);
+});
+peach.on('render', 'button', function (mixin) {
+	var tools = peach.tools(this);
+    tools.addClass('{{self}}-' + mixin.join('-'));
+    this.text = mixin[0][0].toUpperCase() + mixin[0].slice(1);
+});
+peach.on('node', 'todo-list', function (node) {
+	var addButton = node.querySelector('.button-add');
+    var removeButton = node.querySelector('.button-remove');
+    addButton.addEventListener('click', addTodo, false);
+    removeButton.addEventListener('click', removeTodo, false);
+});
+initTodoTemplates();
+appendTodoList();
+```
 
 ### The template file with a new variable named `color`
 
