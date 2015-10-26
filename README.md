@@ -12,9 +12,13 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.set](#peach_fn_set)
 - [Peach.fn.get](#peach_fn_get)
 - [Peach.fn.on](#peach_fn_on)
-  - [onrender](#peach_fn_onrender)
-  - [onnode](#peach_fn_onnode)
+  - [render](#peach_fn_on_render)
+  - [node](#peach_fn_on_node)
 - [Peach.fn.tools](#peach_fn_tools)
+  - [addClass](#peach_fn_tools)
+  - [removeClass](#peach_fn_tools)
+  - [hasClass](#peach_fn_tools)
+  - [css](#peach_fn_tools)
 - [Peach.fn.bind](#peach_fn_bind)
 - [Peach.fn.update](#peach_fn_update)
 
@@ -145,7 +149,7 @@ peach.get('buttonList.myButton');
 
 There are two events you can bind to, `render` & `node`
 
-<a id="peach_fn_onrender"></a>
+<a id="peach_fn_on_render"></a>
 ### `onrender`
 
 ```javascript
@@ -200,7 +204,7 @@ text: "My Button"
 
 Each one of the preceding values that are strings can be included in your template.
 
-<a id="peach_fn_onnode"></a>
+<a id="peach_fn_on_node"></a>
 ### `onnode`
 
 ```javascript
@@ -211,6 +215,54 @@ peach.on('node', 'button', function (node, mixinList) {
   // of ['mixin1', 'mixin2'];
   ...
 });
+```
+
+<a id="peach_fn_tools"></a>
+### Peach.fn.tools
+
+```javascript
+peach.on('render', 'button', function () {
+  var tools = peach.tools(this);
+  // Add Class
+  tools.addClass('a-class');
+  tools.addClass('b-class');
+  // Remove Class
+  tools.removeClass('a-class');
+  // Remove Class with RegExp support
+  tools.removeClass(/class/);
+  // Has Class
+  tools.hasClass('b-class');
+  // CSS
+  // Note : CSS key values must be the JavaScript `camelCase` version of the CSS attribute
+  // CSS also supports automatically adding vendor prefixes when they are requried
+  tools.css({
+    paddingLeft : '50px',
+    paddingTop  : '10px',
+    zIndex      : 3,
+    width       : (100 / 6) + '%'
+  });
+});
+```
+
+<a id="peach_fn_bind"></a>
+### Peach.fn.bind
+
+Attaches a subscriber to a `node` which will be updated via `Peach.fn.update`
+
+```javascript
+var peach = Peach();
+var node  = peach.node('button', { text : 'button1' });
+document.body.appendChild(node);
+peach.bind('button', node);
+```
+
+<a id="peach_fn_update"></a>
+### Peach.fn.update
+
+Updates a node in the DOM with an updated version of that node by rendering it with the passed object properties.
+
+```javascript
+peach.update('button', { text : 'button2' });
 ```
 
 <a id="example_template-file"></a>
