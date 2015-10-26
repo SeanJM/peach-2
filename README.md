@@ -2,7 +2,7 @@
 
 Peach is a template engine with subscribers and emitters
 
-## Function list
+### Function list
 - [Peach.fn.add](#peach_fn_add)
 - [Peach.fn.load](#peach_fn_load)
 - [Peach.fn.render](#peach_fn_render)
@@ -22,7 +22,7 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.bind](#peach_fn_bind)
 - [Peach.fn.update](#peach_fn_update)
 
-## Examples
+### Examples
 - [A Template file](#example_template-file)
 
 # Function List
@@ -40,7 +40,7 @@ peach.add({
 ```
 
 <a id="peach_fn_load"></a>
-## Peach.fn.load
+### Peach.fn.load
 
 You can load as many templates you want.
 
@@ -49,7 +49,7 @@ var peach = Peach();
 peach.load(['template.html'], callbackFunction);
 ```
 <a id="peach_fn_render"></a>
-## Peach.fn.render
+### Peach.fn.render
 
 ```javascript
 var peach = Peach();
@@ -58,7 +58,7 @@ peach.render('button', { text : 'My Button' });
 ```
 
 <a id="peach_fn_renderEach"></a>
-## Peach.fn.renderEach
+### Peach.fn.renderEach
 
 Takes an array as second argument to render templates
 
@@ -75,7 +75,7 @@ peach.render('button', buttonList);
 ```
 
 <a id="peach_fn_node"></a>
-## Peach.fn.node
+### Peach.fn.node
 
 Works the same as `[Peach.fn.render](#peach_fn_render)` and returns a `Node` or `nodeList` instead of a string.
 
@@ -88,7 +88,7 @@ var buttonNode = peach.node('button', {
 ```
 
 <a id="peach_fn_nodeEach"></a>
-## Peach.fn.nodeEach
+### Peach.fn.nodeEach
 
 Takes an array as second argument to render templates as a nodeList
 
@@ -108,7 +108,7 @@ var buttonNodes = peach.nodeEach('button', buttonList);
 ```
 
 <a id="peach_fn_set"></a>
-## Peach.fn.set
+### Peach.fn.set
 
 A function which adds storage which can be passed to the renderer as a string. It uses `lodash.set`.
 
@@ -137,7 +137,7 @@ peach.set('buttonList.mySecondButton', {
 ```
 
 <a id="peach_fn_get"></a>
-## Peach.fn.get
+### Peach.fn.get
 
 A function which retrieves storage which can set. It uses `lodash.get`.
 
@@ -147,12 +147,12 @@ peach.get('buttonList.myButton');
 ```
 
 <a id="peach_fn_on"></a>
-## Peach.fn.on
+### Peach.fn.on
 
 There are two events you can bind to, `render` & `node`
 
 <a id="peach_fn_on_render"></a>
-### `onrender`
+#### `onrender`
 
 ```javascript
 peach.on('render', 'button', function (mixinList) {
@@ -207,7 +207,7 @@ text: "My Button"
 Each one of the preceding values that are strings can be included in your template.
 
 <a id="peach_fn_on_node"></a>
-### `onnode`
+#### `onnode`
 
 ```javascript
 peach.on('node', 'button', function (node, mixinList) {
@@ -220,7 +220,7 @@ peach.on('node', 'button', function (node, mixinList) {
 ```
 
 <a id="peach_fn_tools"></a>
-### Peach.fn.tools
+#### Peach.fn.tools
 
 ```javascript
 peach.on('render', 'button', function () {
