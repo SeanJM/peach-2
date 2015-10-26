@@ -4,9 +4,11 @@ Peach is a template engine with subscribers and emitters
 
 ## Function list
 - [Peach.fn.add](#peach_fn_add)
-- Peach.fn.load
-- Peach.fn.render
-- Peach.fn.renderEach
+- [Peach.fn.load](#peach_fn_load)
+- [Peach.fn.bind](#peach_fn_bind)
+- [Peach.fn.update](#peach_fn_update)
+- [Peach.fn.render](#peach_fn_render)
+- [Peach.fn.renderEach](#peach_fn_renderEach)
 - Peach.fn.renderNode
 - Peach.fn.renderEachNode
 - Peach.fn.set
@@ -14,29 +16,14 @@ Peach is a template engine with subscribers and emitters
 - Peach.fn.tools
 - Peach.fn.on
 
-Basic usage:
+## Examples
+- [A Template file](#example_template-file)
 
-## Loading a template
-You can load as many templates you want.
-
-### Loading from a file
-
-### A template file
-
-```html
-button
-  <div class={{self}}>{{text}}</div>
-```
+<a id="peach_fn_add"></a>
+### Peach.fn.add
 
 ```javascript
-peach = Peach();
-peach.load(['template.html'], callbackFunction);
-```
-
-### Loading using `Peach.fn.add`<a id="peach_fn_add"></a>
-
-```javascript
-peach = Peach();
+var peach = Peach();
 peach.add({
   button : {
     value : '<div {{attr}}>{{text}}</div>'
@@ -44,11 +31,47 @@ peach.add({
 });
 ```
 
-## Rendering a button
+<a id="peach_fn_load"></a>
+## Peach.fn.load
+
+You can load as many templates you want.
 
 ```javascript
+var peach = Peach();
+peach.load(['template.html'], callbackFunction);
+```
+<a id="peach_fn_render"></a>
+## Peach.fn.render
+
+```javascript
+var peach = Peach();
 peach.render('button', { text : 'My Button '});
 // -> <div class="button">My Button</div>
+```
+
+<a id="peach_fn_renderEach"></a>
+## Peach.fn.renderEach
+
+Takes an array as second argument to render templates
+
+```javascript
+var peach      = Peach();
+var buttonList = [{
+  text : 'My Button '
+}, {
+  text : 'My Second Button'
+}];
+peach.render('button', buttonList);
+// -> <div class="button">My Button</div>
+//    <div class="button">My Second Button</div>
+```
+
+<a id="example_template-file"></a>
+### A template file
+
+```html
+button
+  <div class={{self}}>{{text}}</div>
 ```
 
 ## Adding a subscriber to perform prerendering operations
