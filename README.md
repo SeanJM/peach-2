@@ -12,6 +12,8 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.set](#peach_fn_set)
 - [Peach.fn.get](#peach_fn_get)
 - [Peach.fn.on](#peach_fn_on)
+  - [onrender](#peach_fn_onrender)
+  - [onnode](#peach_fn_onnode)
 - [Peach.fn.tools](#peach_fn_tools)
 - [Peach.fn.bind](#peach_fn_bind)
 - [Peach.fn.update](#peach_fn_update)
@@ -143,6 +145,9 @@ peach.get('buttonList.myButton');
 
 There are two events you can bind to, `render` & `node`
 
+<a id="peach_fn_onrender"></a>
+### `onrender`
+
 ```javascript
 peach.on('render', 'button', function (mixinList) {
   // mixinList is an array of strings passed to the renderer with Peach.fn.render
@@ -194,6 +199,19 @@ text: "My Button"
 ```
 
 Each one of the preceding values that are strings can be included in your template.
+
+<a id="peach_fn_onnode"></a>
+### `onnode`
+
+```javascript
+peach.on('node', 'button', function (node, mixinList) {
+  // the value of 'node' can be Node or NodeList
+  // mixinList is an array of strings passed to the renderer with Peach.fn.node
+  // eg : peach.node('button:mixin1:mixin2') would pass the mixinList
+  // of ['mixin1', 'mixin2'];
+  ...
+});
+```
 
 <a id="example_template-file"></a>
 ### A template file
