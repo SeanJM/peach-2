@@ -51,3 +51,68 @@ peach.render('button', { text : 'My Blue Button '});
 peach.render('button', { text : 'My Red Button ', color : 'red' });
 // -> <div class="button--red button">My Red Button</div>
 ```
+
+## Setting custom options at initialization (introduction to another default variable named `attr`)
+
+### What is the `attr` variable?
+
+HTML template
+
+```html
+button
+  <div {{attr}}>{{text}}</div>
+```
+
+Rendering the template
+
+```javascript
+peach.render('button', {
+  text     : 'My Button',
+  class    : 'my-class-name',
+  disabled : 'disabled',
+  id       : 'my-button-id'
+});
+```
+
+Resulting HTML
+
+```html
+<div class="button my-class-name" disabled="disabled" id="my-button-id">My Button</div>
+```
+
+To summarize it, there are certain object keys which will automatically be converted to attributes and their values:
+
+- href
+- class
+- style
+- id
+- for
+- name
+- type
+- value
+- checked
+- tabindex
+- title
+- placeholder
+- selected
+- disabled
+- data* (eg dataValue -> data-value)
+
+You can augment the defaults during initialization:
+
+```javascript
+var peach = Peach({
+  attr : {
+    dingo : {
+      value   : 'data-dingo',
+      process : dingo.flatten
+    },
+    accept : {
+      value : 'accept'
+    }
+  },
+  binder : myAddEventListenerFunction
+});
+```
+
+Here we have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- this is so your key and it's value can optionally be preprocessed before rendering.
