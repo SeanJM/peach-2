@@ -1,0 +1,138 @@
+  Template Version 1.5
+  MIT License
+  by Sean MacIsaac
+
+  Changelog:
+  1.1.0  :  Added nesting of the [data-template] element inside templates
+
+  1.1.1  :  Cleaning up template().init() function, moved template().getData() to become getData()
+
+  1.1.11 :  Regex fix for when [key]: [value] is passed to a nested template call, it would cause the regex to gobble up the next line if the [value] was "empty"
+
+  1.2.0  :  Template now passes an object containing 'this' which references the string that is being manipulated. It no longer passes a jQuery object.
+
+  1.2.2  :  Added iterator to get();
+
+  1.2.3  :  Fixed bug where get() would return an array of jQuery objects with empty strings
+
+  1.2.7  :  Changed storage format to a JSON string
+
+  1.2.8  :  Added {%each "iterator" "template"%}
+
+  1.2.9  :  Fixed empty string parsed to JSON causing error
+
+  1.3.0  :  $.trim(s) on fill to remove any unecessary white space
+
+  1.3.1  :  Added '{{oddOrEven}}' for arrays and '{{position}}'
+
+  1.3.2  :  Added '{{variable.transform}}' dot transform
+
+  1.3.3  :  Added template('template-name').fill(object)
+
+  1.3.4  :  Fixed fill() error when object was undefined
+
+  1.3.5  :  Added template('context').load(files,callback);
+
+  1.3.6  :  Cleaned up initiation
+
+  1.3.7  :  template_fn now returns "string" as a property of "options"
+
+  1.3.8  :  \*<div template="name"></div>*\ now accepts html which will return an object named '$'
+
+  1.3.9  :  Refactored the code to be cleaner and removed some redundancy temp- lates are whitespace active now, so: template-name <div></div>
+
+  1.3.10 :  Refactored to use $.get() instead of load to fetch the template string. $('<div>') was creating an element on the page causing an error when images were being loaded that didn't exist yet.
+
+  1.3.11 :  Template name is now delimited by white-space, eg:
+
+            template-name <div class="something"></div>
+            or
+            template-name
+              <div class="something"></div>
+
+            Added {{self}} variable which will return the name of the template
+
+            Added {{variable-name.toUpperCase}}
+
+            Added {{parent}} to {%each %}
+
+            Removed need to return string for ion.fn['template-name']
+
+            {%each %} is now white space active :each 'iterator' 'template-name'
+
+            Fixed bug where each would only work once per template
+
+            Added {{variable.toTitleCase}}
+
+            :each is back to {%each%}
+
+  1.3.12 :  {{variable.toTitleCase}} supports exclusion words, such as 'and, b-
+            ut' etc... and also handles compound words
+
+            Fixed fill not accepting variables with '-' or '_'
+
+            Properties now accept '_' and '-'
+
+            Properties can now be chained
+
+            ion.bind('template-name') will return either a jQuery element
+            or an array or object
+
+  1.3.13 :  The object is now inside the attribute string.
+            element content defaults to {{}}, so you can now have templated st-
+            rings with html content.
+
+  1.3.14 :  Data and HTML can share the same content area
+
+  1.3.18 :  Fixed bug with HTML and OBJ sharing the same space.
+
+  1.3.19 :  Process will now work if the first element in the template is a re-
+            ference to another template
+
+            Fixed JSON not being removed from the string if there was other te-
+            xt inside the match
+
+  1.3.20 :  Fixed double dipping bug
+
+  1.3.21 :  Refactored the loop
+            Fixed ion.data returning child data
+
+  1.3.22 :  Added '%total' to augment
+            Renamed augmented variables so they are protected
+
+  1.3.23 :  Added comments
+
+  1.3.24 :  Can now point to an object stored in the database
+            Options are now stored in the dom object
+
+  1.3.25 :  Can now use ion.key.keyName to perform operations on specific
+            key names
+
+  1.3.26 :  Fixed data pointer not working unless the element had JSON
+
+  1.3.27 :  Bug in digit group
+
+  1.3.28 :  Added math and ability to process strings and template names
+
+  1.3.30 :  ion.fill now accepts <div template=""></div> tags, moved all
+            properties and extends into their own respective files
+
+  1.3.31 :  Fixed while loop for nest() which was caused by not replacing the
+            string value with 'empty' once the nest was scoped
+
+  1.3.32 :  Added error for when a template which does not exist is referenced
+
+  1.3.33 :  Added ion.process which will look for an execute functions after
+            ion.fn has executed
+
+  1.3.34 :  Added a default ID which is created with a unique index
+  
+  1.3.5  :  Unified data conversion, and made a globally accessible function 
+            called ion.getData(string|ion.name);
+  
+  1.5    :  No longer converts JSON strings to JSON. Now you have to point to 
+            an object which is defined using a 'set' function
+            
+            Works like a constructor now
+
+*/
