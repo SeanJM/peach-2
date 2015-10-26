@@ -429,39 +429,3 @@ There is a DOM interface for rendering templates. The tag is `<x-peach render="b
 ```
 
 Everything inside the `render` attribute is symmetric to the first argument in `peach.render()` this important because of the ability to pass `objects` and `mixins` to the renderer.
-
-## Setting an object that can be passed
-
-```javascript
-peach.set('hello', {
-  text : 'Hello'
-});
-```
-
-## Passing a `set` object to the renderer
-
-```javascript
-peach.render('button@hello');
-// -> <div class="button">Hello</div>
-```
-
-You can have more complex objects as `peach.set` uses `lodash`, it uses `_.set` for setting.
-
-```javascript
-peach.set('buttonModels', {
-  hello : {
-    text : 'Hello'
-  },
-  world : {
-    world : 'World'
-  }
-});
-```
-
-```javascript
-peach.render('button@buttonModels.hello');
-// -> <div class="button">Hello</div>
-
-peach.render('button@buttonModels.world');
-// -> <div class="button">World</div>
-```
