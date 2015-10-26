@@ -5,16 +5,16 @@ Peach is a template engine with subscribers and emitters
 ## Function list
 - [Peach.fn.add](#peach_fn_add)
 - [Peach.fn.load](#peach_fn_load)
-- [Peach.fn.bind](#peach_fn_bind)
-- [Peach.fn.update](#peach_fn_update)
 - [Peach.fn.render](#peach_fn_render)
 - [Peach.fn.renderEach](#peach_fn_renderEach)
-- Peach.fn.renderNode
-- Peach.fn.renderEachNode
+- [Peach.fn.node](#peach_fn_node)
+- [Peach.fn.nodeEach](#peach_fn_nodeEach)
 - Peach.fn.set
 - Peach.fn.get
 - Peach.fn.tools
 - Peach.fn.on
+- [Peach.fn.bind](#peach_fn_bind)
+- [Peach.fn.update](#peach_fn_update)
 
 ## Examples
 - [A Template file](#example_template-file)
@@ -64,6 +64,39 @@ var buttonList = [{
 peach.render('button', buttonList);
 // -> <div class="button">My Button</div>
 //    <div class="button">My Second Button</div>
+```
+
+<a id="peach_fn_node"></a>
+## Peach.fn.node
+
+Works the same as `[Peach.fn.render](#peach_fn_render)` and returns a `Node` or `nodeList` instead of a string.
+
+```javascript
+var peach      = Peach();
+var buttonNode = peach.node('button', {
+  text : 'My Button '
+});
+// -> [object HTMLBodyElement] : <div class="button">My Button</div>
+```
+
+<a id="peach_fn_nodeEach"></a>
+## Peach.fn.nodeEach
+
+Takes an array as second argument to render templates as a nodeList
+
+```javascript
+var peach      = Peach();
+var buttonList = [{
+  text : 'My Button '
+}, {
+  text : 'My Second Button'
+}];
+var buttonNodes = peach.nodeEach('button', buttonList);
+// -> [object NodeList] :
+//    [
+//      0: <div class="button">My Button</div>],
+//      1: <div class="button">My Second Button</div>
+//    ]
 ```
 
 <a id="example_template-file"></a>
