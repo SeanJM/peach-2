@@ -2,6 +2,18 @@
 
 Peach is a template engine with subscribers and emitters
 
+## Function list
+- [Peach.fn.add](#peach_fn_add)
+- Peach.fn.load
+- Peach.fn.render
+- Peach.fn.renderEach
+- Peach.fn.renderNode
+- Peach.fn.renderEachNode
+- Peach.fn.set
+- Peach.fn.get
+- Peach.fn.tools
+- Peach.fn.on
+
 Basic usage:
 
 ## Loading a template
@@ -9,19 +21,19 @@ You can load as many templates you want.
 
 ### Loading from a file
 
-```javascript
-peach = Peach();
-peach.load(['template.html'], callback);
-```
-
-## A template file
+### A template file
 
 ```html
 button
   <div class={{self}}>{{text}}</div>
 ```
 
-### Loading using `Peach.fn.add`
+```javascript
+peach = Peach();
+peach.load(['template.html'], callbackFunction);
+```
+
+### Loading using `Peach.fn.add`<a id="peach_fn_add"></a>
 
 ```javascript
 peach = Peach();
