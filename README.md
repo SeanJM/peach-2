@@ -29,6 +29,7 @@ Peach is a template engine with subscribers and emitters
 ### Examples
 - [A Todo list](#example_todo-list)
 - [Setting custom options at initialization](#example_custom-init)
+- [DOM rendering](#example_dom-rendering)
 
 # Function List
 
@@ -413,6 +414,7 @@ var peach = Peach({
 
 Here we have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- this is so your key and it's value can optionally be preprocessed before rendering. The preprocessor must return a string.
 
+<a href="example_dom-rendering"></a>
 ## DOM rendering
 
 There is a DOM interface for rendering templates. The tag is `<x-peach render="button"></x-peach>`
