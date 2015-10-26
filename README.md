@@ -1,9 +1,10 @@
 # Peach 2.0
 
+Peach is a template engine with subscribers and emitters
+
 ## Requirements
 - [Lodash](https://raw.githubusercontent.com/lodash/lodash/3.10.1/lodash.min.js)
 
-Peach is a template engine with subscribers and emitters
 
 ### Reference List
 - [Peach.fn.add](#peach_fn_add)
