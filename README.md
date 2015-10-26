@@ -23,7 +23,7 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.update](#peach_fn_update)
 
 ### Examples
-- [A Template file](#example_template-file)
+- [A Todo list](#example_todo-list)
 
 # Function List
 
@@ -269,7 +269,7 @@ peach.update('button', { text : 'button2' });
 
 # Examples
 
-<a id="example_template-file"></a>
+<a id="example_todo-list"></a>
 ### A todo list
 [JSFiffle](http://jsfiddle.net/SeanJM/eeL23xdf/20/)
 
