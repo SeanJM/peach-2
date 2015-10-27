@@ -41,7 +41,7 @@ Peach is a template engine with subscribers and emitters
 ### Examples
 - [A Todo list](#example_todo-list)
 - [Setting custom options at initialization](#example_custom-init)
-- [DOM rendering](#example_dom-rendering)
+- [DOM rendering](#example_dom)
 
 # Function List
 
@@ -177,19 +177,19 @@ peach.get('buttonList.myButton');
 // -> { text : 'My Button ' }
 ```
 
-An example on the `DOM`
+An example on the [`DOM`](#example_dom)
 
 ```html
 <x-peach render="button@buttonList.myButton"></x-peach>
 ```
 
-An example using `Peach.fn.render`
+An example using [`Peach.fn.render`](#peach_fn_render)
 
 ```javascript
 peach.render('button@buttonList.myButton');
 ```
 
-An example using `Peach.fn.node`
+An example using [`Peach.fn.node`](#peach_fn_node)
 
 ```javascript
 peach.node('button@buttonList.myButton');
@@ -435,7 +435,7 @@ var peach = Peach({
 
 Here I have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- it's value can optionally be preprocessed before rendering. _The preprocessor must return a string._
 
-<a id="example_dom-rendering"></a>
+<a id="example_dom"></a>
 ## DOM rendering
 
 There is a DOM interface for rendering templates. The tag is `<x-peach render="button"></x-peach>`
