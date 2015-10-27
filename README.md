@@ -382,21 +382,23 @@ To summarize it, there are certain object keys which will automatically be conve
 
 In this way, you can also refer to each `{{attr}}` member uniquely by inserting an underscore:
 
-- {{attr_href}}
-- {{attr_class}}
-- {{attr_style}}
-- {{attr_id}}
-- {{attr_for}}
-- {{attr_name}}
-- {{attr_type}}
-- {{attr_value}}
-- {{attr_checked}}
-- {{attr_tabindex}}
-- {{attr_title}}
-- {{attr_placeholder}}
-- {{attr_selected}}
-- {{attr_disabled}}
-- {{attr_data*}} (eg dataValue -> {{attr_data-value}})
+- `{{attr_href}}`
+- `{{attr_class}}`
+- `{{attr_style}}`
+- `{{attr_id}}`
+- `{{attr_for}}`
+- `{{attr_name}}`
+- `{{attr_type}}`
+- `{{attr_value}}`
+- `{{attr_checked}}`
+- `{{attr_tabindex}}`
+- `{{attr_title}}`
+- `{{attr_placeholder}}`
+- `{{attr_selected}}`
+- `{{attr_disabled}}`
+- `{{attr_data*}}` (eg dataValue -> {{attr_data-value}})
+
+By refering uniquely to the {{attr_*}} the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
 
 You can augment the defaults during initialization:
 
