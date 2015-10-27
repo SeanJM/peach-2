@@ -301,7 +301,9 @@ Here are the two ways in which you can add key values to `this`
 #### Passing an `object` literal to the renderer. This object will augment `this` with its values.
 
 ```javascript
-peach.render('button', { text : 'My Button' });
+peach.render('button', {
+  text : 'My Button'
+});
 ```
 
 #### Passing a reference to an `object` created with [`Peach.fn.set`](#peach_fn_set)
