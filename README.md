@@ -174,7 +174,7 @@ There are two events you can bind to, `render` & `node`
 #### render
 
 `mixinList` is an `Array` of strings passed to the renderer.
-Eg : `peach.render('button:mixin1:mixin2')` would pass the mixinList of ['mixin1', 'mixin2'];
+Eg : `peach.render('button:mixin1:mixin2')` would pass the mixinList of `['mixin1', 'mixin2'];`
 
 ```javascript
 peach.on('render', 'button', function (mixinList) {
