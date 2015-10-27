@@ -383,7 +383,7 @@ var peach = Peach({
 
 Here I have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- it's value can optionally be preprocessed before rendering. _The preprocessor must return a string._
 
-<a href="example_dom-rendering"></a>
+<a id="example_dom-rendering"></a>
 ## DOM rendering
 
 There is a DOM interface for rendering templates. The tag is `<x-peach render="button"></x-peach>`
