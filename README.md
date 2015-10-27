@@ -173,12 +173,32 @@ There are two events you can bind to, `render` & `node`
 <a id="peach_fn_on_render"></a>
 #### render
 
+`mixinList` is an `Array` of strings passed to the renderer.
+Eg : peach.render('button:mixin1:mixin2') would pass the mixinList of ['mixin1', 'mixin2'];
+
 ```javascript
 peach.on('render', 'button', function (mixinList) {
-  // mixinList is an array of strings passed to the renderer with Peach.fn.render
-  // eg : peach.render('button:mixin1:mixin2') would pass the mixinList
-  // of ['mixin1', 'mixin2'];
   ...
+});
+```
+
+Here is an example where I listen for `mixin1` on `button` and in this e
+
+```javascript
+peach.on('render', 'button:mixin1', function (mixinList) {
+  // Do stuff
+});
+```
+
+In this example, I check the presence of `mixin2` and `mixin3`.
+
+```javascript
+peach.on('render', 'button:mixin1', function (mixinList) {
+  if (mixinList.has('mixin2', 'mixin3')) {
+    // Do stuff
+  } else if (mixinList.has('mixin2')) {
+    // Do this stuff
+  }
 });
 ```
 
@@ -228,10 +248,11 @@ Each one of the preceding values that are strings can be included in your templa
 <a id="peach_fn_on_node"></a>
 #### node
 
+- The value of 'nodeElement' can be a `Node` or `NodeList`
+- `mixinList` is an `Array` of strings passed to the renderer
+
 ```javascript
-peach.on('node', 'button', function (node, mixinList) {
-  // the value of 'node' can be Node or NodeList
-  // mixinList is an array of strings passed to the renderer with Peach.fn.node
+peach.on('node', 'button', function (nodeElement, mixinList) {
   // eg : peach.node('button:mixin1:mixin2') would pass the mixinList
   // of ['mixin1', 'mixin2'];
   ...
@@ -425,7 +446,7 @@ var peach = Peach({
 });
 ```
 
-Here we have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- this is so your key and it's value can optionally be preprocessed before rendering. The preprocessor must return a string.
+Here I have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- it's value can optionally be preprocessed before rendering. _The preprocessor must return a string._
 
 <a href="example_dom-rendering"></a>
 ## DOM rendering
