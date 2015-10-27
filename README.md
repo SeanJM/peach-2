@@ -95,7 +95,7 @@ peach.render('button', { text : 'My Button' });
 <a id="peach_fn_renderEach"></a>
 ### Peach.fn.renderEach
 
-Takes an `Array` as second argument to render templates
+Takes an `Array` as second argument to render templates as a **string**
 
 ```javascript
 var peach      = Peach();
