@@ -208,7 +208,9 @@ These examples all make **symmetric** use to the object reference and illustrate
 <a id="peach_fn_on"></a>
 ### Peach.fn.on
 
-There are two events you can bind to, `render` & `node`
+There are two events you can bind to:
+- `peach.on('render')`
+- `peach.on('node')`
 
 <a id="peach_fn_on_render"></a>
 #### render
