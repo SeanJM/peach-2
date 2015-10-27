@@ -4,6 +4,18 @@ Peach is a template engine with subscribers and emitters
 
 ## Requirements
 - [Lodash](https://raw.githubusercontent.com/lodash/lodash/3.10.1/lodash.min.js)
+  - \_.assign
+  - \_.cloneDeep
+  - \_.forEach
+  - \_.get
+  - \_.kebabCase
+  - \_.keys
+  - \_.last
+  - \_.merge
+  - \_.pick
+  - \_.remove
+  - \_.set
+  - \_.uniq
 
 
 ### Reference List
