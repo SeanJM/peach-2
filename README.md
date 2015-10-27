@@ -212,7 +212,7 @@ Here are the two ways in which you can add key values to `this`
 peach.render('button', { text : 'My Button' });
 ```
 
-2. Passing a reference to an `object`
+2. Passing a reference to an `object` created with [`Peach.fn.set`](#peach_fn_set)
 
 ```javascript
 peach.render('button@myButton');
