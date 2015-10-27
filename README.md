@@ -243,6 +243,52 @@ peach.on('render', 'button:mixin1', function (mixinList) {
   }
 });
 ```
+<a id="peach_fn_on_mixins"></a>
+### More on mixins
+
+The algorithm for passing `mixins` to the emitter is like this:
+`peach.render('button:mixin1:mixin2:mixin3')` will trigger subscribers in this order:
+
+- `'button:mixin1:mixin2:mixin3'`
+- `'button:mixin1:mixin2'`
+- `'button:mixin3'`
+- `'button:mixin2'`
+- `'button:mixin1'`
+- `'button'`
+
+In practical terms:
+
+```javascript
+// First to trigger
+peach.on('render', 'button:mixin1:mixin2:mixin3', function () {});
+// Second to trigger
+peach.on('render', 'button:mixin1:mixin2', function () {});
+// Third to trigger
+peach.on('render', 'button:mixin3', function () {});
+// Fourth to trigger
+peach.on('render', 'button:mixin2', function () {});
+// Fifth to trigger
+peach.on('render', 'button:mixin1', function () {});
+// Last to trigger
+peach.on('render', 'button', function () {});
+```
+
+It also important to note, that `peach.on` adds the subscribers to an `Array`. This means you can add a virtually unlimited amount of each subcriber:
+
+```javascript
+// #1
+peach.on('render', 'button', function () {});
+// #2
+peach.on('render', 'button', function () {});
+// #3
+peach.on('render', 'button', function () {});
+// #4
+peach.on('render', 'button', function () {});
+// #5
+peach.on('render', 'button', function () {});
+// #6
+peach.on('render', 'button', function () {});
+```
 
 It's important to note, that `peach.on('render')` passes `this` to the function as an `object`.
 
