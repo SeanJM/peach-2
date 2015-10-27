@@ -395,6 +395,34 @@ In the template value, you can refer to either the whole rendered `{{attr}}` var
 
 By refering uniquely to the `{{attr_*}}` the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
 
+The object for reference
+
+```javascript
+{
+  class : 'this-class-name',
+  value : 'test'
+}
+```
+
+The rendered value of `{{attr}}`
+
+```html
+class="this-class-name" value="test"
+```
+
+The rendered value of `{{attr_class}}`
+
+```html
+class="this-class-name"
+```
+
+The rendered value of `{{attr_value}}`
+
+```html
+value="test"
+```
+
+
 <a id="peach_fn_tools"></a>
 #### Peach.fn.tools
 
