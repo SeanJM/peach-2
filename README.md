@@ -177,6 +177,26 @@ peach.get('buttonList.myButton');
 // -> { text : 'My Button ' }
 ```
 
+An example on the `DOM`
+
+```html
+<x-peach render="button@buttonList.myButton"></x-peach>
+```
+
+An example using `Peach.fn.render`
+
+```javascript
+peach.render('button@buttonList.myButton');
+```
+
+An example using `Peach.fn.node`
+
+```javascript
+peach.node('button@buttonList.myButton');
+```
+
+These examples all make symmetric use to the object reference.
+
 <a id="peach_fn_on"></a>
 ### Peach.fn.on
 
