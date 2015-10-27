@@ -364,21 +364,21 @@ Resulting HTML
 
 To summarize it, there are certain object keys which will automatically be converted to attributes and their values:
 
-- href
-- class
-- style
-- id
-- for
-- name
-- type
-- value
-- checked
-- tabindex
-- title
-- placeholder
-- selected
-- disabled
-- data* (eg dataValue -> data-value)
+- `href`
+- `class`
+- `style`
+- `id`
+- `for`
+- `name`
+- `type`
+- `value`
+- `checked`
+- `tabindex`
+- `title`
+- `placeholder`
+- `selected`
+- `disabled`
+- `data*` (eg dataValue -> data-value)
 
 In this way, you can also refer to each `{{attr}}` member uniquely by inserting an underscore:
 
@@ -398,7 +398,7 @@ In this way, you can also refer to each `{{attr}}` member uniquely by inserting 
 - `{{attr_disabled}}`
 - `{{attr_data*}}` (eg dataValue -> {{attr_data-value}})
 
-By refering uniquely to the {{attr_*}} the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
+By refering uniquely to the `{{attr_*}}` the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
 
 You can augment the defaults during initialization:
 
