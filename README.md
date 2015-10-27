@@ -96,7 +96,7 @@ peach.render('button', buttonList);
 <a id="peach_fn_node"></a>
 ### Peach.fn.node
 
-Works the same as `[Peach.fn.render](#peach_fn_render)` and returns a `Node` or `nodeList` instead of a string.
+Works the same as [`Peach.fn.render`](#peach_fn_render) and returns a `Node` or `nodeList` instead of a string.
 
 ```javascript
 var peach      = Peach();
