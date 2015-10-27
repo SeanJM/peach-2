@@ -511,7 +511,7 @@ The object for reference
 }
 ```
 
-The rendered value of '{{attr}}'
+The rendered value of `{{attr}}`
 
 ```
 data-dingo="clickHandler_myClickHandler"
