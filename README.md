@@ -29,7 +29,7 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.get](#peach_fn_get)
 - [Peach.fn.on](#peach_fn_on)
   - [render](#peach_fn_on_render)
-  - [More on mixins](#peach_fn_on_mixins)
+  - [mixins](#peach_fn_on_mixins)
   - [this](#peach_fn_on_this)
   - [node](#peach_fn_on_node)
 - [Peach.fn.tools](#peach_fn_tools)
