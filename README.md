@@ -48,12 +48,25 @@ peach.add({
 <a id="peach_fn_load"></a>
 ### Peach.fn.load
 
-You can load as many templates you want.
+Peach also allows the loading of templates from HTML files. These files are loaded in an array, you can load as many templates you want and include a callback function once they are loaded and the DOM has been rendered.
 
 ```javascript
 var peach = Peach();
 peach.load(['template.html'], callbackFunction);
 ```
+
+It is important to note that template files are whitespace active, this is an example of `template.html`.
+
+```html
+button
+  <div class="{{self}}">{{text}}</div>
+
+input
+  <div class="{{self}}">
+    <input {{attr_value}} {{attr_placeholder}}>
+  </div>
+```
+
 <a id="peach_fn_render"></a>
 ### Peach.fn.render
 
