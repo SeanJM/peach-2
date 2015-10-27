@@ -177,19 +177,19 @@ peach.get('buttonList.myButton');
 // -> { text : 'My Button ' }
 ```
 
-An example on the [`DOM`](#example_dom)
+#### An example on the [`DOM`](#example_dom)
 
 ```html
 <x-peach render="button@buttonList.myButton"></x-peach>
 ```
 
-An example using [`Peach.fn.render`](#peach_fn_render)
+#### An example using [`Peach.fn.render`](#peach_fn_render)
 
 ```javascript
 peach.render('button@buttonList.myButton');
 ```
 
-An example using [`Peach.fn.node`](#peach_fn_node)
+#### An example using [`Peach.fn.node`](#peach_fn_node)
 
 ```javascript
 peach.node('button@buttonList.myButton');
