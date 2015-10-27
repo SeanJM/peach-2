@@ -91,7 +91,7 @@ peach.render('button', { text : 'My Button' });
 <a id="peach_fn_renderEach"></a>
 ### Peach.fn.renderEach
 
-Takes an array as second argument to render templates
+Takes an `Array` as second argument to render templates
 
 ```javascript
 var peach      = Peach();
@@ -121,7 +121,7 @@ var buttonNode = peach.node('button', {
 <a id="peach_fn_nodeEach"></a>
 ### Peach.fn.nodeEach
 
-Takes an array as second argument to render a `nodeList`
+Takes an `Array` as second argument to render a `nodeList`
 
 ```javascript
 var peach      = Peach();
