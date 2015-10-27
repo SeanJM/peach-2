@@ -398,3 +398,9 @@ There is a DOM interface for rendering templates. The tag is `<x-peach render="b
 ```
 
 Everything inside the `render` attribute is symmetric to the first argument in `peach.render()` this important because of the ability to pass `objects` and `mixins` to the renderer.
+
+For example:
+
+```html
+  <x-peach render="button:mixin1:mixin2@myButton"></x-peach>
+```
