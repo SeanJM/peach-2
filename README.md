@@ -84,6 +84,8 @@ input
 <a id="peach_fn_render"></a>
 ### Peach.fn.render
 
+A function used to render a template to a **string**.
+
 ```javascript
 var peach = Peach();
 peach.render('button', { text : 'My Button' });
