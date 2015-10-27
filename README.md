@@ -29,6 +29,8 @@ Peach is a template engine with subscribers and emitters
 - [Peach.fn.get](#peach_fn_get)
 - [Peach.fn.on](#peach_fn_on)
   - [render](#peach_fn_on_render)
+  - [More on mixins](#peach_fn_on_mixins)
+  - [this](#peach_fn_on_this)
   - [node](#peach_fn_on_node)
 - [Peach.fn.tools](#peach_fn_tools)
   - [addClass](#peach_fn_tools)
@@ -246,7 +248,7 @@ peach.on('render', 'button:mixin1', function (mixinList) {
 <a id="peach_fn_on_mixins"></a>
 ### More on mixins
 
-The algorithm for passing `mixins` to the emitter `peach.render('button:mixin1:mixin2:mixin3')` will trigger subscribers in this order:
+The algorithm for passing `mixins` to the emitter listening on `peach.render('button:mixin1:mixin2:mixin3')` will trigger subscribers in this order:
 
 - `'button:mixin1:mixin2:mixin3'`
 - `'button:mixin1:mixin2'`
@@ -288,6 +290,9 @@ peach.on('render', 'button', function () {});
 // #6
 peach.on('render', 'button', function () {});
 ```
+
+<a id="peach_fn_on_this"></a>
+### `This`
 
 It's important to note, that `peach.on('render')` passes `this` to the function as an `object`.
 
