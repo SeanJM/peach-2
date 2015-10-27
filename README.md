@@ -319,7 +319,7 @@ peach.update('button', { text : 'button2' });
 
 <a id="example_todo-list"></a>
 ### A todo list
-[JSFiddle](http://jsfiddle.net/SeanJM/wjeybf76/)
+[JSFiddle](http://jsfiddle.net/SeanJM/dgk71rwc/)
 
 <a id="example_custom-init"></a>
 ## Setting custom options at initialization (introduction to another default variable named `attr`)
