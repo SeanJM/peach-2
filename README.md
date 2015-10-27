@@ -334,9 +334,9 @@ peach.update('button', { text : 'button2' });
 [JSFiddle](http://jsfiddle.net/SeanJM/dgk71rwc/)
 
 <a id="example_custom-init"></a>
-## Setting custom options at initialization (introduction to another default variable named `attr`)
+## Setting custom options at initialization (more information about the default variable `{{attr}}`)
 
-### What is the `attr` variable?
+### What is the `{{attr}}` variable?
 
 HTML template
 
@@ -379,6 +379,24 @@ To summarize it, there are certain object keys which will automatically be conve
 - selected
 - disabled
 - data* (eg dataValue -> data-value)
+
+In this way, you can also refer to each `{{attr}}` member uniquely by inserting an underscore:
+
+- {{attr_href}}
+- {{attr_class}}
+- {{attr_style}}
+- {{attr_id}}
+- {{attr_for}}
+- {{attr_name}}
+- {{attr_type}}
+- {{attr_value}}
+- {{attr_checked}}
+- {{attr_tabindex}}
+- {{attr_title}}
+- {{attr_placeholder}}
+- {{attr_selected}}
+- {{attr_disabled}}
+- {{attr_data*}} (eg dataValue -> {{attr_data-value}})
 
 You can augment the defaults during initialization:
 
