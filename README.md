@@ -48,6 +48,8 @@ Peach is a template engine with subscribers and emitters
 <a id="peach_fn_add"></a>
 ### Peach.fn.add
 
+A function which is used to store templates by `name` and `value`
+
 ```javascript
 var peach = Peach();
 peach.add({
