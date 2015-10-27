@@ -209,14 +209,14 @@ These examples all make **symmetric** use to the object reference and illustrate
 ### Peach.fn.on
 
 There are two events you can bind to:
-- `peach.on('render')`
-- `peach.on('node')`
+- `render'`
+- `node'`
 
 <a id="peach_fn_on_render"></a>
 #### render
 
-`mixinList` is an `Array` of strings passed to the renderer.
-Eg : `peach.render('button:mixin1:mixin2')` would pass the mixinList of `['mixin1', 'mixin2'];`
+`mixinList` is an `Array` of `strings` passed to the renderer.
+Eg : `peach.render('button:mixin1:mixin2')`, `:` is the delimiter, and will pass the a list of `['mixin1', 'mixin2'];`
 
 ```javascript
 peach.on('render', 'button', function (mixinList) {
