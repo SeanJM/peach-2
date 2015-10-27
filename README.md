@@ -112,7 +112,7 @@ peach.render('button', buttonList);
 <a id="peach_fn_node"></a>
 ### Peach.fn.node
 
-Works the same as [`Peach.fn.render`](#peach_fn_render) and returns a `Node` or `nodeList`.
+Works the same as [`Peach.fn.render`](#peach_fn_render) and returns a `Node` or `NodeList`.
 
 ```javascript
 var peach      = Peach();
@@ -125,7 +125,7 @@ var buttonNode = peach.node('button', {
 <a id="peach_fn_nodeEach"></a>
 ### Peach.fn.nodeEach
 
-Takes an `Array` as second argument to render a `nodeList`
+Takes an `Array` as second argument to render a `NodeList`
 
 ```javascript
 var peach      = Peach();
@@ -145,7 +145,9 @@ var buttonNodes = peach.nodeEach('button', buttonList);
 <a id="peach_fn_set"></a>
 ### Peach.fn.set
 
-A function which adds storage which can be passed to the renderer as a string. It uses `lodash.set` and returns the set value.
+A function which adds storage which can be passed as an object reference to the renderer.
+
+Uses `lodash.set` and returns the set value.
 
 ```javascript
 var peach = Peach();
@@ -183,7 +185,7 @@ peach.get('buttonList.myButton');
 
 #### Referencing the Object from the [`DOM`](#example_dom)
 
-The `@` sign is our delimeter for passing an object reference to the renderer.
+The `@` sign is our delimiter for passing an object reference to the renderer.
 
 ```html
 <x-peach render="button@buttonList.myButton"></x-peach>
@@ -201,7 +203,7 @@ peach.render('button@buttonList.myButton');
 peach.node('button@buttonList.myButton');
 ```
 
-These examples all make symmetric use to the object reference.
+These examples all make **symmetric** use to the object reference and illustrate the consistency between using **functions** to render or **nodes**.
 
 <a id="peach_fn_on"></a>
 ### Peach.fn.on
