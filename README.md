@@ -84,7 +84,7 @@ input
 <a id="peach_fn_render"></a>
 ### Peach.fn.render
 
-A function used to render a template to a **string**.
+A function used to render a template to a `string`.
 
 ```javascript
 var peach = Peach();
@@ -95,7 +95,7 @@ peach.render('button', { text : 'My Button' });
 <a id="peach_fn_renderEach"></a>
 ### Peach.fn.renderEach
 
-Takes an `Array` as second argument to render templates as a **string**
+Takes an `Array` as second argument to render templates as a `string`.
 
 ```javascript
 var peach      = Peach();
@@ -112,7 +112,7 @@ peach.render('button', buttonList);
 <a id="peach_fn_node"></a>
 ### Peach.fn.node
 
-Works the same as [`Peach.fn.render`](#peach_fn_render) and returns a `Node` or `nodeList` instead of a string.
+Works the same as [`Peach.fn.render`](#peach_fn_render) and returns a `Node` or `nodeList`.
 
 ```javascript
 var peach      = Peach();
@@ -145,7 +145,7 @@ var buttonNodes = peach.nodeEach('button', buttonList);
 <a id="peach_fn_set"></a>
 ### Peach.fn.set
 
-A function which adds storage which can be passed to the renderer as a string. It uses `lodash.set`.
+A function which adds storage which can be passed to the renderer as a string. It uses `lodash.set` and returns the set value.
 
 ```javascript
 var peach = Peach();
@@ -174,7 +174,7 @@ peach.set('buttonList.mySecondButton', {
 <a id="peach_fn_get"></a>
 ### Peach.fn.get
 
-A function which retrieves storage which can set. It uses `lodash.get`.
+A function which retrieves storage which was created using [`Peach.fn.set`](#peach_fn_set). It uses `lodash.get`.
 
 ```javascript
 peach.get('buttonList.myButton');
@@ -182,6 +182,8 @@ peach.get('buttonList.myButton');
 ```
 
 #### Referencing the Object from the [`DOM`](#example_dom)
+
+The `@` sign is our delimeter for passing an object reference to the renderer.
 
 ```html
 <x-peach render="button@buttonList.myButton"></x-peach>
