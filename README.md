@@ -286,6 +286,10 @@ peach.on('render', 'button', function () {
 });
 ```
 
+To take advantage of `peach.tools(this).addClass`, `peach.tools(this).removeClass` my template will require either `{{attr_class}}` or `{{attr}}`.
+
+To take advantage of `peach.tools(this).css` my template will require either `{{attr_style}}` or `{{attr}}`.
+
 <a id="peach_fn_bind"></a>
 ### Peach.fn.bind
 
