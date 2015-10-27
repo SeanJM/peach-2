@@ -246,8 +246,7 @@ peach.on('render', 'button:mixin1', function (mixinList) {
 <a id="peach_fn_on_mixins"></a>
 ### More on mixins
 
-The algorithm for passing `mixins` to the emitter is like this:
-`peach.render('button:mixin1:mixin2:mixin3')` will trigger subscribers in this order:
+The algorithm for passing `mixins` to the emitter `peach.render('button:mixin1:mixin2:mixin3')` will trigger subscribers in this order:
 
 - `'button:mixin1:mixin2:mixin3'`
 - `'button:mixin1:mixin2'`
