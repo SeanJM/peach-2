@@ -486,33 +486,7 @@ peach.update('button', { text : 'button2' });
 [JSFiddle](http://jsfiddle.net/SeanJM/dgk71rwc/)
 
 <a id="example_custom-init"></a>
-## Setting custom options at initialization (more information about the default variable `{{attr}}`)
-
-### What is the `{{attr}}` variable?
-
-HTML template
-
-```html
-button
-  <div {{attr}}>{{text}}</div>
-```
-
-Rendering the template
-
-```javascript
-peach.render('button', {
-  text     : 'My Button',
-  class    : 'my-class-name',
-  disabled : 'disabled',
-  id       : 'my-button-id'
-});
-```
-
-Resulting HTML
-
-```html
-<div class="button my-class-name" disabled="disabled" id="my-button-id">My Button</div>
-```
+## Setting custom options at initialization
 
 You can augment the defaults during initialization:
 
