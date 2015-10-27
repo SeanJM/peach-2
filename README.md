@@ -380,7 +380,7 @@ To summarize it, there are certain object keys which will automatically be conve
 - `disabled`
 - `data*` (eg dataValue -> data-value)
 
-In this way, you can also refer to each `{{attr}}` member uniquely by inserting an underscore:
+In the template value, you can refer to either the whole rendered `{{attr}}` variable, or each member uniquely by inserting an underscore:
 
 - `{{attr_href}}`
 - `{{attr_class}}`
