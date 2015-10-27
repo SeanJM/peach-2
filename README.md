@@ -32,6 +32,7 @@ Peach is a template engine with subscribers and emitters
   - [mixins](#peach_fn_on_mixins)
   - [this](#peach_fn_on_this)
   - [node](#peach_fn_on_node)
+  - [{{attr}}](#peach_fn_on_attr)
 - [Peach.fn.tools](#peach_fn_tools)
   - [addClass](#peach_fn_tools)
   - [removeClass](#peach_fn_tools)
@@ -353,6 +354,47 @@ peach.on('node', 'button', function (nodeElement, mixinList) {
 });
 ```
 
+<a id="peach_fn_on_attr"></a>
+#### `{{attr}}`
+
+To summarize it, there are certain object keys which will automatically be converted to attributes and their values:
+
+- `href`
+- `class`
+- `style`
+- `id`
+- `for`
+- `name`
+- `type`
+- `value`
+- `checked`
+- `tabindex`
+- `title`
+- `placeholder`
+- `selected`
+- `disabled`
+- `data*` (eg dataValue -> data-value)
+
+In the template value, you can refer to either the whole rendered `{{attr}}` variable, or each member uniquely by inserting an underscore:
+
+- `{{attr_href}}`
+- `{{attr_class}}`
+- `{{attr_style}}`
+- `{{attr_id}}`
+- `{{attr_for}}`
+- `{{attr_name}}`
+- `{{attr_type}}`
+- `{{attr_value}}`
+- `{{attr_checked}}`
+- `{{attr_tabindex}}`
+- `{{attr_title}}`
+- `{{attr_placeholder}}`
+- `{{attr_selected}}`
+- `{{attr_disabled}}`
+- `{{attr_data*}}` (eg dataValue -> {{attr_data-value}})
+
+By refering uniquely to the `{{attr_*}}` the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
+
 <a id="peach_fn_tools"></a>
 #### Peach.fn.tools
 
@@ -443,44 +485,6 @@ Resulting HTML
 ```html
 <div class="button my-class-name" disabled="disabled" id="my-button-id">My Button</div>
 ```
-
-To summarize it, there are certain object keys which will automatically be converted to attributes and their values:
-
-- `href`
-- `class`
-- `style`
-- `id`
-- `for`
-- `name`
-- `type`
-- `value`
-- `checked`
-- `tabindex`
-- `title`
-- `placeholder`
-- `selected`
-- `disabled`
-- `data*` (eg dataValue -> data-value)
-
-In the template value, you can refer to either the whole rendered `{{attr}}` variable, or each member uniquely by inserting an underscore:
-
-- `{{attr_href}}`
-- `{{attr_class}}`
-- `{{attr_style}}`
-- `{{attr_id}}`
-- `{{attr_for}}`
-- `{{attr_name}}`
-- `{{attr_type}}`
-- `{{attr_value}}`
-- `{{attr_checked}}`
-- `{{attr_tabindex}}`
-- `{{attr_title}}`
-- `{{attr_placeholder}}`
-- `{{attr_selected}}`
-- `{{attr_disabled}}`
-- `{{attr_data*}}` (eg dataValue -> {{attr_data-value}})
-
-By refering uniquely to the `{{attr_*}}` the renderer will flatten the values into a string, eg : `{{attr_href}}` -> `href="http://www.myAddress.com"`
 
 You can augment the defaults during initialization:
 
