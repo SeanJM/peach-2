@@ -60,7 +60,7 @@ peach.add({
 <a id="peach_fn_load"></a>
 ### Peach.fn.load
 
-Peach also allows the loading of templates from HTML files. These files are loaded in an array, you can load as many templates you want and include a callback function once they are loaded and the DOM has been rendered.
+Peach also allows loading templates as HTML. Files are loaded in an `Array`. A callback function can be included as a second argument, it will execute once the files are loaded and the DOM has been rendered.
 
 ```javascript
 var peach = Peach();
