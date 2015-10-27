@@ -189,7 +189,7 @@ Here are the two ways in which you can add key values to `this`
 1. Passing an `object` literal to the renderer. This object will augment `this` with its values.
 
 ```javascript
-peach.render('button', { text : 'myButton' });
+peach.render('button', { text : 'My Button' });
 ```
 
 2. Passing a reference to an `object`
