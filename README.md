@@ -503,6 +503,20 @@ var peach = Peach({
 
 Here I have a short hand key named `dingo` which also requires a `processor` named `dingo.flatten` -- it's value can optionally be preprocessed before rendering. _The preprocessor must return a string._
 
+The object for reference
+
+```javascript
+{
+  dingo : 'clickHandler_myClickHandler'
+}
+```
+
+The rendered value of '{{attr}}'
+
+```
+data-dingo="clickHandler_myClickHandler"
+```
+
 <a id="example_dom"></a>
 ## DOM rendering
 
