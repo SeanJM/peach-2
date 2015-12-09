@@ -1,10 +1,10 @@
-(function (window) {
+(function () {
   function isObject (_arguments) {
     var self   = this;
     var keys   = _.keys(this._protected.attr);
     var unsafe = ['self', 'attr', 'string', 'class', 'style'].concat(keys);
     function extend (to, from) {
-      if (from !== window) {
+      if (typeof window === 'object' && from !== window) {
         for (var k in from) {
           // Will not extend underscored values
           if (unsafe.indexOf(k) < 0 && typeof to[k] === 'undefined' && k[0] !== '_') {
@@ -82,4 +82,4 @@
       return isObject.call(this, _arguments);
     }
   };
-})(window);
+})();
